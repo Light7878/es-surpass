@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESスルーパス β版</title>
+</head>
+<body>
+    <h1>ESスルーパス β</h1>
+    <form method="post" action="/analyze">
+        <textarea name="es_text" rows="15" cols="60" placeholder="ここにESを貼ってください"></textarea><br><br>
+        <button type="submit">分析する</button>
+    </form>
+
+    {% if results %}
+        <h2>分析結果</h2>
+        <ul>
+        {% for r in results %}
+            <li>{{ r }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
