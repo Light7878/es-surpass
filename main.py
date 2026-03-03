@@ -37,3 +37,12 @@ def home(request: Request):
 def analyze(request: Request, es_text: str = Form(...)):
     results = analyze_es(es_text)
     return templates.TemplateResponse("index.html", {"request": request, "results": results, "original": es_text})
+
+
+
+if __name__ == "__main__":
+        from datetime import datetime
+
+def add_history(text, score):
+    with open("history.csv", "a", encoding="utf-8") as f:
+        f.write(f"{datetime.now()},{text},{score}\n")
